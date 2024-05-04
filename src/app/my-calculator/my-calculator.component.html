@@ -1,0 +1,18 @@
+<div class="calculator">
+  <h2 class="calculator__tile">Калькулятор</h2>
+
+  <div class="calculator__container">
+    <input type="number" class="calculator__input" [(ngModel)]="first" />
+    <select class="calculator__select" [(ngModel)]="selectedOperation">
+      <option *ngFor="let operation of operations" [value]="operation">
+        {{ operation }}
+      </option>
+    </select>
+    <input type="number" class="calculator__input" [(ngModel)]="second" />
+  </div>
+
+  <span class="calculator__result">
+    Результат: <span>{{ result ? result : "Нажмите расчитать" }}</span>
+  </span>
+  <button (click)="calc()" class="calculator__button">Расчитать</button>
+</div>
