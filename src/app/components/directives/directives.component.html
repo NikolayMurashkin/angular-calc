@@ -43,10 +43,32 @@ last = $last; let first = $first ) {
   </ng-template>
 </div> -->
 
-@for ( color of colors; track color) {
+<!-- @for ( color of colors; track color) {
 <div>
   <button (click)="currentColor = color">{{ color }}</button>
 </div>
 } @empty {
 <span>выводит разметку если массив пустой</span>
 }
+<div [ngSwitch]="currentColor">
+  <span *ngSwitchCase="'red'">Выбранный цвет - красный</span>
+  <span *ngSwitchCase="'green'">Выбранный цвет - зеленый</span>
+  <span *ngSwitchCase="'blue'">Выбранный цвет - синий</span>
+  <span *ngSwitchCase="'yellow'">Выбранный цвет - желтый</span>
+</div>
+
+@switch (currentColor) { @case ('red') {
+<span [ngStyle]="elementStyle">Выбранный цвет - красный</span>
+} @case ('green') {
+<span>Выбранный цвет - зеленый</span>
+} @case ('blue') {
+<span ngClass="first second">Выбранный цвет - синий</span>
+} @case ('yellow') {
+<span>Выбранный цвет - желтый</span>
+} } -->
+
+<!-- <div [myChangeColor]="colors">Change colors</div> -->
+
+<span *myIf="isShow">{{ isShow }}</span>
+<br />
+<button (click)="setIsShow()">set is show</button>
