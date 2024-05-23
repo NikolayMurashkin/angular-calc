@@ -5,6 +5,7 @@ import { DirectivesPageComponent } from './components/directives/directives.comp
 import { LifecircleComponent } from './components/lifecircle/lifecircle.component';
 import { RequestsComponent } from './components/requests/requests.component';
 import { PipesComponent } from './components/pipes/pipes/pipes.component';
+import { FormsComponent } from './components/forms/forms.component';
 
 export const routes: Routes = [
   {
@@ -34,6 +35,14 @@ export const routes: Routes = [
   {
     path: 'requests',
     component: RequestsComponent,
+  },
+  {
+    path: 'pipes',
+    component: PipesComponent,
+  },
+  {
+    path: 'forms',
+    component: FormsComponent,
   },
   {
     path: 'pipes',
