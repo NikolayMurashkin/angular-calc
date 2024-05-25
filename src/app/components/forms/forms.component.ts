@@ -7,6 +7,8 @@ import {
   ValidatorFn,
   AbstractControl,
   ValidationErrors,
+  FormBuilder,
+  FormArray,
 } from '@angular/forms';
 
 export function checkRegExp(regExp: RegExp): ValidatorFn {
@@ -32,6 +34,35 @@ export const confirmPassword = (
   styleUrl: './forms.component.scss',
 })
 export class FormsComponent {
+  constructor(private _fb: FormBuilder) {}
+
+  public get skills(): FormArray {
+    return this.fbGroup.get('skills') as FormArray;
+  }
+
+  public newSkill(): FormGroup {
+    return this._fb.group({
+      skill: '',
+      expirience: '',
+    });
+  }
+
+  public addSkill(): void {
+    this.skills.push(this.newSkill());
+  }
+
+  public removeSkill(i: number): void {
+    this.skills.removeAt(i);
+  }
+  public onSubmit() {
+    console.log(this.fbGroup.value);
+  }
+
+  public fbGroup = this._fb.group({
+    name: ['Vasya', Validators.required],
+    skills: this._fb.array([]),
+  });
+
   public myForm = new FormGroup({
     login: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
