@@ -1,6 +1,0 @@
-@if (posts$ | async; as posts) { @for (post of posts; track post.id) {
-<div class="post">
-  <div class="post__title">{{ post.title }}</div>
-  <div class="post__content">{{ post.body }}</div>
-</div>
-} }
